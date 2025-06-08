@@ -1,10 +1,13 @@
 package com.genius.mykatta.repository;
 
-import java.util.Optional;
-
+import com.genius.mykatta.model.Student;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.NonNull;
 
-import com.genius.mykatta.model.Student;
+import java.util.Optional;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
@@ -21,8 +24,4 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query("SELECT COUNT(s) > 0 FROM Student s WHERE s.id = :studentId AND s.isActive = true")
     boolean isActiveStudent(Integer studentId);
-
-    Student save(Student student);
-
-    Object findById(Integer studentId);
 }

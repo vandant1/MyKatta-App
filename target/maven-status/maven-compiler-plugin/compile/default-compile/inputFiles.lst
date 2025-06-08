@@ -1,5 +1,6 @@
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\exception\ErrorResponse.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\JpaRepository.java
+C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\model\UpdatePost.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\exception\DuplicateResourceException.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\MykattaApplication.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\controller\List.java
@@ -24,8 +25,6 @@ C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\service\impl\StudentServiceI
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\DailyLoginRepository.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\service\impl\FileServiceImpl.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\model\FileRecord.java
-C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\Pageable.java
-C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\Page.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\UpdatePost.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\AdminHistory.java
 C:\2k25\MyKattaApp\src\main\java\com\genius\mykatta\repository\StudentRepository.java

@@ -1,6 +1,8 @@
 package com.genius.mykatta.controller;
 
-import com.genius.mykatta.exception.*;
+import com.genius.mykatta.exception.DuplicateResourceException;
+import com.genius.mykatta.exception.ErrorResponse;
+import com.genius.mykatta.exception.ResourceNotFoundException;
 import com.genius.mykatta.model.Student;
 import com.genius.mykatta.service.StudentService;
 import jakarta.validation.Valid;
@@ -8,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/students")
@@ -28,15 +32,21 @@ public class StudentController {
     }
 
     @GetMapping("/top-contributors")
-    public List<Student> getTopContributors(
-            @RequestParam(defaultValue = "10") int limit) {
-        return (List<Student>) studentService.getTopContributors(limit);
+    public List<Student> getTopContributors(@RequestParam(defaultValue = "10") int limit) {
+        return studentService.getTopContributors(limit);
     }
 
     @ExceptionHandler(DuplicateResourceException.class)
     public ResponseEntity<ErrorResponse> handleDuplicateResource(DuplicateResourceException ex) {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse(ex.getMessage()));
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
                 .body(new ErrorResponse(ex.getMessage()));
     }
 }

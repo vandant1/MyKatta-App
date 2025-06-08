@@ -1,8 +1,13 @@
 package com.genius.mykatta.repository;
 
-import java.util.List;
-
+import com.genius.mykatta.model.UpdatePost;
 import com.genius.mykatta.model.enums.UpdateType;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface UpdatePostRepository extends JpaRepository<UpdatePost, Integer> {
 
