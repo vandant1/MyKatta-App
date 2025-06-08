@@ -4,9 +4,10 @@ import com.genius.mykatta.model.UpdatePost;
 import com.genius.mykatta.model.enums.UpdateType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface UpdatePostRepository extends JpaRepository<UpdatePost, Integer> {
@@ -21,11 +22,8 @@ public interface UpdatePostRepository extends JpaRepository<UpdatePost, Integer>
     Page<UpdatePost> findTopLevelUpdates(Pageable pageable);
 
     @Query("SELECT u FROM UpdatePost u WHERE u.parent.id = :parentId ORDER BY u.createdAt ASC")
-    List<UpdatePost> findRepliesByParentId(Integer parentId);
+    List<UpdatePost> findRepliesByParentId(@Param("parentId") Integer parentId);
 
-    @Query("SELECT u FROM UpdatePost u WHERE " +
-           "u.updateType = 'ANNOUNCEMENT' AND " +
-           "u.isPinned = true AND " +
-           "u.createdAt >= CURRENT_DATE - 7")
-    List<UpdatePost> findRecentPinnedAnnouncements();
+    @Query("SELECT u FROM UpdatePost u WHERE u.updateType = 'ANNOUNCEMENT' AND u.isPinned = true AND u.createdAt >= :sinceDate")
+    List<UpdatePost> findRecentPinnedAnnouncements(@Param("sinceDate") LocalDateTime sinceDate);
 }
