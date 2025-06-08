@@ -1,0 +1,12 @@
+com\genius\mykatta\model\FileRecord.class
+com\genius\mykatta\repository\Page.class
+com\genius\mykatta\model\enums\UpdateType.class
+com\genius\mykatta\model\enums\StudentClass.class
+com\genius\mykatta\repository\Pageable.class
+com\genius\mykatta\model\Student$StudentBuilder.class
+com\genius\mykatta\repository\UpdatePost.class
+com\genius\mykatta\model\Student.class
+com\genius\mykatta\repository\JpaRepository.class
+com\genius\mykatta\model\enums\FileType.class
+com\genius\mykatta\repository\UpdatePostRepository.class
+com\genius\mykatta\model\FileRecord$FileRecordBuilder.class
